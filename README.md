@@ -2,6 +2,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+# create .env.local file
+
+MAKE following variables inside
+
+- CUBEJS_API_SECRET
+- CUBEJS_API_TOKEN
+- CUBEJS_API_URL
+
+# How to generate token
+
+just run below command in terminal
+
+```bash
+node tokenScript.js
+```
+
+and then copy token and add to .env.local
+
 First, run the development server:
 
 ```bash
