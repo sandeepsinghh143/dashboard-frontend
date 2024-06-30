@@ -1,5 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import MobileDrawer from "@/components/MobileDrawer";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
+import { StoreProvider } from "@/redux/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +15,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StoreProvider>
+          <MobileDrawer />
+          <Navbar />
+          <div>
+            <div className="flex">
+              <Sidebar />
+              <div className="w-full lg:w-[calc(100%-64px)] lg:ml-[250px] mt-16 p-2 overflow-hidden">
+                {children}
+              </div>
+            </div>
+          </div>
+        </StoreProvider>
+      </body>
     </html>
   );
 }
